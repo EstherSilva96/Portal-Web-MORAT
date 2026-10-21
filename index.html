@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morat World | Portal Musical</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f3ed;
+      color: #282820;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #243e32;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    nav a:hover {
+      color: #e7c78b;
+    }
+
+    .hero {
+      min-height: 390px;
+      padding: 75px 8%;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, #182b23ed, #182b2360),
+        url("https://media.gq.com.mx/photos/69d53e679e49d02ba221b8fa/3:2/w_3000,h_2000,c_limit/morat-en-m%C3%A9xico-gira-2026-YEM-World-%20Tour.jpg")
+        center/cover;
+      color: white;
+    }
+
+    .hero div {
+      max-width: 650px;
+    }
+
+    .hero h2 {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .boton {
+      display: inline-block;
+      background: #d6b77a;
+      color: #202820;
+      padding: 12px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 55px 8%;
+    }
+
+    section h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+      color: #6fbd99;
+    }
+
+    .descripcion {
+      max-width: 750px;
+      margin-bottom: 25px;
+    }
+
+    .buscador {
+      display: flex;
+      gap: 10px;
+      margin: 25px 0;
+      max-width: 650px;
+    }
+
+    .buscador input {
+      flex: 1;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #c8c8bd;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .buscador button {
+      background: #243e32;
+      color: white;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #estado {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .canciones {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 22px;
+    }
+
+    .tarjeta {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px #00000012;
+      padding-bottom: 18px;
+    }
+
+    .tarjeta img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .tarjeta h3 {
+      font-size: 18px;
+      margin: 15px 15px 5px;
+    }
+
+    .tarjeta p {
+      margin: 0 15px 10px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .tarjeta a {
+      display: inline-block;
+      margin: 5px 15px;
+      color: #243e32;
+      font-weight: bold;
+    }
+
+    .sobre {
+      background: #e8e5db;
+    }
+
+    footer {
+      background: #243e32;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin: 0 12px 0 0;
+      }
+
+      .hero {
+        padding: 55px 7%;
+      }
+
+      .buscador {
+        flex-direction: column;
+      }
+
+      section {
+        padding: 40px 7%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>MORAT WORLD</h1>
+
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#canciones">Canciones</a>
+      <a href="#sobre">Sobre Morat</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div>
+        <h2>Un mundo lleno de música</h2>
+        <p>
+          Descubre canciones, álbumes y música de Morat
+          en un portal creado para sus fans.
+        </p>
+        <a href="#canciones" class="boton">
+          Explorar canciones
+        </a>
+      </div>
+    </section>
+
+    <section id="canciones">
+      <h2>Explora la música de Morat</h2>
+      <p class="descripcion">
+        Busca canciones y descubre sus portadas, álbumes
+        y enlaces para escuchar música.
+        La información se obtiene de una API pública.
+      </p>
+
+      <form class="buscador" id="formulario">
+        <input
+          type="text"
+          id="busqueda"
+          placeholder="Buscar canciones o artistas..."
+          value="Morat"
+          aria-label="Buscar canciones"
+          required
+        >
+        <button type="submit">Buscar</button>
+      </form>
+
+      <p id="estado" role="status">Cargando canciones...</p>
+      <div class="canciones" id="resultados"></div>
+    </section>
+
+    <section class="sobre" id="sobre">
+      <h2>Sobre Morat</h2>
+      <p class="descripcion">
+        Morat es una banda colombiana conocida por su
+        pop latino, sus melodías y sus canciones que
+        hablan de amor, recuerdos y experiencias.
+        Este portal reúne información musical para que
+        los fans puedan explorar su catálogo.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Morat World | Proyecto académico de Diseño de Sistemas de Internet</p>
+    <p>Información musical consultada mediante iTunes Search API.</p>
+  </footer>
+
+  <script>
+    const formulario = document.getElementById("formulario");
+    const campoBusqueda = document.getElementById("busqueda");
+    const resultados = document.getElementById("resultados");
+    const estado = document.getElementById("estado");
+
+    async function buscarCanciones(termino) {
+      estado.textContent = "Consultando la API...";
+      resultados.replaceChildren();
+
+      try {
+        const url =
+          "https://itunes.apple.com/search?term=" +
+          encodeURIComponent(termino) +
+          "&entity=song&limit=12&country=US";
+
+        const respuesta = await fetch(url);
+
+        if (!respuesta.ok) {
+          throw new Error("No se pudo consultar el servicio.");
+        }
+
+        const datos = await respuesta.json();
+
+        const canciones = datos.results.filter(cancion =>
+          cancion.artistName.toLowerCase().includes("morat")
+        );
+
+        if (canciones.length === 0) {
+          estado.textContent =
+            "No se encontraron canciones de Morat. Prueba otra búsqueda.";
+          return;
+        }
+
+        estado.textContent =
+          "Se encontraron " + canciones.length +
+          " canciones de Morat.";
+
+        canciones.forEach(cancion => {
+          const tarjeta = document.createElement("article");
+          tarjeta.className = "tarjeta";
+
+          const imagen = document.createElement("img");
+          imagen.src = cancion.artworkUrl100 ||
+            "https://placehold.co/300x300?text=Morat";
+          imagen.alt = "Portada de " + cancion.trackName;
+          imagen.loading = "lazy";
+
+          const titulo = document.createElement("h3");
+          titulo.textContent = cancion.trackName;
+
+          const album = document.createElement("p");
+          album.textContent =
+            "Álbum: " + (cancion.collectionName || "No disponible");
+
+          const artista = document.createElement("p");
+          artista.textContent = "Artista: " + cancion.artistName;
+
+          tarjeta.append(imagen, titulo, album, artista);
+
+          if (cancion.previewUrl) {
+            const audio = document.createElement("audio");
+            audio.controls = true;
+            audio.preload = "none";
+            audio.src = cancion.previewUrl;
+            audio.style.width = "calc(100% - 30px)";
+            audio.style.margin = "5px 15px";
+            tarjeta.appendChild(audio);
+          }
+
+          if (cancion.trackViewUrl) {
+            const enlace = document.createElement("a");
+            enlace.href = cancion.trackViewUrl;
+            enlace.target = "_blank";
+            enlace.rel = "noopener noreferrer";
+            enlace.textContent = "Ver canción";
+            tarjeta.appendChild(enlace);
+          }
+
+          resultados.appendChild(tarjeta);
+        });
+
+      } catch (error) {
+        estado.textContent =
+          "No fue posible conectar con la API. " +
+          "Comprueba tu conexión e inténtalo nuevamente.";
+        console.error(error);
+      }
+    }
+
+    formulario.addEventListener("submit", function(evento) {
+      evento.preventDefault();
+
+      const termino = campoBusqueda.value.trim();
+
+      if (termino) {
+        buscarCanciones(termino);
+      }
+    });
+
+    buscarCanciones("Morat");
+  </script>
+
+</body>
+</html>
